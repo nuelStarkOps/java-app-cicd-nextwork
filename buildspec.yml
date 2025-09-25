@@ -4,11 +4,20 @@ phases:
   install:
     runtime-versions:
       java: corretto8
+    commands:
+      - echo Installing AWS CLI...
+      - pip install --upgrade awscli
   pre_build:
     commands:
       - echo Logging in to AWS CodeArtifact...
-      - CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain nextwork --domain-owner 835515904282 --region us-east-1 --query authorizationToken --output text)
+      - CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
+          --domain nextwork \
+          --domain-owner 835515904282 \
+          --region us-east-1 \
+          --query authorizationToken \
+          --output text)
       - export CODEARTIFACT_AUTH_TOKEN
+      - echo "Token acquired successfully."
   build:
     commands:
       - echo Build started on `date`
@@ -18,6 +27,7 @@ phases:
       - echo Build completed on `date`
       - echo Packaging artifacts...
       - mvn package -s settings.xml
+
 artifacts:
   files:
     - target/*.war
