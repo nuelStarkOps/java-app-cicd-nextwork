@@ -1,11 +1,7 @@
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
-
+<settings>
   <servers>
     <server>
-      <id>nextwork-repo</id>
+      <id>nextwork-nextwork-devops-cicd</id>
       <username>aws</username>
       <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
     </server>
@@ -13,21 +9,26 @@
 
   <profiles>
     <profile>
-      <id>use-codeartifact</id>
+      <id>nextwork-nextwork-devops-cicd</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
       <repositories>
         <repository>
-          <id>nextwork-repo</id>
+          <id>nextwork-nextwork-devops-cicd</id>
           <url>https://nextwork-835515904282.d.codeartifact.us-east-1.amazonaws.com/maven/nextwork-devops-cicd/</url>
-        </repository>
-        <repository>
-          <id>central</id>
-          <url>https://repo.maven.apache.org/maven2</url>
         </repository>
       </repositories>
     </profile>
   </profiles>
+
+  <mirrors>
+    <mirror>
+      <id>nextwork-nextwork-devops-cicd</id>
+      <name>nextwork-nextwork-devops-cicd</name>
+      <url>https://nextwork-835515904282.d.codeartifact.us-east-1.amazonaws.com/maven/nextwork-devops-cicd/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
 
 </settings>
