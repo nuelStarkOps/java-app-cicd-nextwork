@@ -1,6 +1,7 @@
 <html>
 <body>
-<h2>Hello Stark!</h2>
-<p>If you see this line in Github, that means your latest changes are getting pushed to your cloud repo :o</p>
+<h2>Hello Viewer</h2>
+<p>This dev is open for jobs x collaborations - nuelthedeveloper@gmail.com</p>
+<p>if you're reading this, it's too late - pipeline triggered </p>
 </body>
 </html>
