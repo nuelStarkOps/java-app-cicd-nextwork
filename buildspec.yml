@@ -18,9 +18,10 @@ phases:
       - echo Build completed on `date`
       - echo Packaging artifacts...
       - mvn package -s settings.xml
+
 artifacts:
   files:
-    - target/nextwork-web-project.war
+    - target/*.war        # ✅ picks up any .war file in target/
     - appspec.yml
     - scripts/**/*
   discard-paths: no
